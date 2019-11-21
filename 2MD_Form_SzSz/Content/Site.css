@@ -1,0 +1,117 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.form-container {
+    max-width: 450px;
+    background: #f4f7f8;
+    padding: 20px;
+    margin: 50px auto;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border: 6px solid #333;
+}
+
+    .form-container h1 {
+        background: #333;
+        padding: 20px 0;
+        text-align: center;
+        color: #fff;
+        margin: -20px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+.form-button {
+    background: #333;
+    color: #fff;
+    max-width: unset;
+    width: 100%;
+    padding: 3%;
+    margin: auto;
+    margin-top: 15px;
+    outline: none;
+}
+
+
+    .form-button:hover {
+        color: #43D1AF;
+    }
+
+    .form-button:focus {
+        color: #30C29E;
+    }
+
+.form-field {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 8px;
+    outline: none;
+    border: 1px solid #B0CFE0;
+    max-width: 100% !important;
+}
+
+    .form-field:focus {
+        box-shadow: 0 0 5px #B0CFE0;
+        border: 1px solid #43D1AF;
+    }
+
+.field-split {
+    width: 49%;
+}
+
+.field-full {
+    max-width: unset;
+    width: 100%;
+}
+
+input.align-left {
+    float: left;
+}
+
+input.align-right {
+    float: right;
+}
+
+.form-row {
+    position: relative;
+    display: inline-block;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.text-danger {
+    position: absolute;
+    left: 10px;
+    top: -10px;
+    font-size: 0.8em;
+}
