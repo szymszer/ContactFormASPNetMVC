@@ -1,11 +1,11 @@
 # ContactFormASPNetMVC
 
 1. Requirements:
-    Visual Studio (2017 or newer),
-    MS SQL Server (2017 or newer),
-    Microsoft SQL Server Management Studio,
-    Network connection (for SMTP - email sending)
-    
+    - Visual Studio (2017 or newer),
+    - MS SQL Server (2017 or newer),
+    - Microsoft SQL Server Management Studio,
+    - Network connection (for SMTP - email sending)
+   
 2. Database configuration:
 Copy and Run this script to create database needed for the project or run the SQLQuery.sql file.
 /****** Script for SelectTopNRows command from SSMS  ******/
@@ -37,17 +37,17 @@ CREATE TABLE [dbo].[FormTable1](
 GO
 
 3. Visual Studio configuration:
-Run '2MD_Form_SzSz.sln',
-Select 'Web.Config' file,
-Edit connection strings for "FormEntities" and "myDB1Entities"
-Change the data source property (default: DESKTOP-KI7HRKU\SQLEXPRESS01) - insert your sql server name,
-Edit 'Data Connections': View -> Server Explorer -> Data Connections (refresh if empty) -> Modify Connection.. -> Server Name: (insert your server name) -> press 'Test Connection' to verify.
+- Run '2MD_Form_SzSz.sln',
+- Select 'Web.Config' file,
+- Edit connection strings for "FormEntities" and "myDB1Entities"
+- Change the data source property (default: DESKTOP-KI7HRKU\SQLEXPRESS01) - insert your sql server name,
+- Edit 'Data Connections': View -> Server Explorer -> Data Connections (refresh if empty) -> Modify Connection.. -> Server Name: (insert your server name) -> press 'Test Connection' to verify.
 If needed, update entity model
 
 4. Running Solution:
-Build project,
-Run solution (or press F5 - default),
-On success a new page will be shown in your default browser.
-Insert form data and press 'Submit' - email and message fields are required, email verification requires valid email form (ex@example) 
-Successful submit will store a record in database and send an email. If something fails there will be a message with an error.
+- Build project,
+- Run solution (or press F5 - default),
+- On success a new page will be shown in your default browser.
+- Insert form data and press 'Submit' - email and message fields are required, email verification requires valid email form (ex@example) 
+- Successful submit will store a record in database and send an email. If something fails there will be a message with an error.
    
