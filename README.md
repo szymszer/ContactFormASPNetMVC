@@ -7,7 +7,7 @@
     • Network connection (for SMTP - email sending)
     
 2. Database configuration:
-Copy and Run this script to create database needed for the project.
+Copy and Run this script to create database needed for the project or run the SQLQuery.sql file.
 /****** Script for SelectTopNRows command from SSMS  ******/
 CREATE DATABASE myDB1
 GO
