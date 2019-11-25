@@ -1,10 +1,10 @@
 # ContactFormASPNetMVC
 
 1. Requirements:
-    • Visual Studio (2017 or newer)
-    • MS SQL Server (2017 or newer)
-    • Microsoft SQL Server Management Studio 
-    • Network connection (for SMTP - email sending)
+    Visual Studio (2017 or newer),
+    MS SQL Server (2017 or newer),
+    Microsoft SQL Server Management Studio,
+    Network connection (for SMTP - email sending)
     
 2. Database configuration:
 Copy and Run this script to create database needed for the project or run the SQLQuery.sql file.
