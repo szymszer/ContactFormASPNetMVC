@@ -23,48 +23,48 @@ namespace _2MD_Form_SzSz.Controllers
         [HttpPost]
         public ActionResult AddForm(Form form)
         {
-            using (myDB1Entities db = new myDB1Entities())
+            try
             {
-                var Fdb = new FormTable();
-                Fdb.ID = form.ID;
-                Fdb.Date = DateTime.Now;
-                Fdb.FirstName = form.FirstName;
-                Fdb.LastName = form.LastName;
-                Fdb.Email = form.Email;
-                Fdb.AreaOfInterest = form.AreaOfInterest;
-                Fdb.Phone = form.Phone;
-                Fdb.Message = form.Message;
-
-                db.FormTable.Add(Fdb);
-                try
+                using (myDB1Entities db = new myDB1Entities())
                 {
-                    db.SaveChanges();
+                    FormTable Fdb = new FormTable
+                    {
+                        ID = form.ID,
+                        Date = DateTime.Now,
+                        FirstName = form.FirstName,
+                        LastName = form.LastName,
+                        Email = form.Email,
+                        AreaOfInterest = form.AreaOfInterest,
+                        Phone = form.Phone,
+                        Message = form.Message
+                    };
 
-                    // TODO: move smtp settings to web config
-                    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-                    smtpClient.Credentials = new System.Net.NetworkCredential("smtp2mdszsz@gmail.com", "BardzoTajne!1");
+                    db.FormTable.Add(Fdb);
+                    
+                    SmtpClient smtpClient = new SmtpClient();
                     smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    smtpClient.EnableSsl = true;
-                    System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
 
-                    mail.To.Add(new MailAddress(Fdb.Email));     
+                    System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
+                    mail.To.Add(new MailAddress(Fdb.Email));
                     mail.From = new MailAddress("smtp2mdszsz@gmail.com", "2MD_FORM_SzSz");
                     mail.Subject = Fdb.AreaOfInterest;
-                    mail.Body = Fdb.Message;
+                    mail.Body = Fdb.Message + " - " + Fdb.FirstName + " " + Fdb.LastName;
 
                     smtpClient.Send(mail);
-
+                    db.SaveChanges();
+                    ModelState.Clear();
 
                     ViewBag.SuccessMessage = "Your form has been successfully submitted!";
                 }
-                catch (Exception e)
-                {
-                    ViewBag.SuccessMessage = "There was an error submitting your form.";
-                    throw e;
-                }
-
-                ModelState.Clear();
             }
+            catch (Exception e)
+            {
+                ViewBag.SuccessMessage = "There was an error submitting your form.";
+                ViewBag.Details = e.Message;
+                //throw e;
+            }
+
+
 
 
             return View("SubmitForm");
